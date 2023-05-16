@@ -124,7 +124,7 @@ class HttpRequest : public HttpMessage {
     virtual ~HttpRequest();
     // string to_string(const HttpRequest& request);
     // parse the request message
-    virtual HttpRequest* parseRequest(const string& request_string);
+    HttpRequest* parseRequest(const string& request_string);
 };
 
 // An HttpResponse object represents a single HTTP response

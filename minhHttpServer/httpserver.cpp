@@ -75,6 +75,7 @@ int HttpServer::receiveRequestMessage(){
         std::cout << "Received data from client: " << std::endl;
         httpRequest = new HttpRequest();
         httpRequest->parseRequest(std::string(buffer));
+        // return httpResponse by handling httpRequest:
         handleHttpRequest(*httpRequest);
         return 0;
     }
