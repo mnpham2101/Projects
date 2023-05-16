@@ -102,7 +102,7 @@ The server and clients perform those operations to establish connections and sen
     ssize_t bytesRead = recv(clientSocket, buffer, sizeof(buffer) - 1, 0);
     ```
     * The full HTTP message is stored into the buffer char array. 
-    * I define `parseRequest(std::string(buffer))` to extract information from the HTTP data. The most important information that I need to get from the HTTP message is on the first line. The first line is a substring, defined by the left position and right position. The right position is found by the end of the line, defined by `\r\n` characters.
+    * I define `parseRequest(std::string(buffer))` to extract information from the HTTP data. The most important information that I need to get from the HTTP message is on the first line. The first line is a substring, defined by the left position and right position. The right position is found by the end of the line, defined by `\r\n` (Carriage return and line feed) characters.
     ```
     rpos = request_string.find("\r\n", lpos);
     start_line = request_string.substr(lpos, rpos - lpos);
@@ -179,7 +179,7 @@ epoll_data_response.data.ptr = httpResponse;
 epoll_ctl(epoll_fd, EPOLLOUT, clientSocket, &epoll_data_response)      // epoll_data_response should includes httpResponse data in its member *ptr
 ```
 
-### Managing multiple threads: 
+### Managing multiple threads
 * Each client request could be handled by a single thread. The following actions are performed: 
   * create an epoll instance `epoll_fd`.  
   * create httpResponse
@@ -188,3 +188,10 @@ epoll_ctl(epoll_fd, EPOLLOUT, clientSocket, &epoll_data_response)      // epoll_
 * I intend to create a thread pool to manage the threads that serves each client. The thread pool could make use of `mutex` and `conditional_variable`. In another project, I implemented a primitive thread pool: https://freewindcode.com/2023/05/12/concurrency-programming-runthread-pool-with-c-and-kotlin/#Primitive_thread_pool_with_mutex_and_conditional_variables 
 
 
+## References
+
+I found the following resources to be tremendously helpful:
+
+* This github resource has simple codes, under 500 lines total. The codes has simple logic to parse and returns all GET requests. The http response message and return not only html but jpeg, css, js files as requested by client. As the result, a full functioning website could be displayed. https://github.com/Dungyichao/http_server
+
+* This blog explains how the server can employ various methods to serve multiple clients: https://trungams.github.io/2020-08-23-a-simple-http-server-from-scratch/ 
