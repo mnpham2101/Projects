@@ -259,8 +259,16 @@ int HttpServer::stopClientConnection(){
 
 void HttpServer::stopServerConnection(){
     std::cout<< "server stops, close connection"<<std::endl;
+    listener_thread_.join();
+    for (int i = 0; i < kThreadPoolSize; i++) {
+        worker_threads_[i].join();
+    }
+    for (int i = 0; i < kThreadPoolSize; i++) {
+        close(worker_epoll_fd_[i]);
+    }
     close(serverSocket);
     close(clientSocket);
+
 }
 
 void HttpServer::handleHttpRequest(const HttpRequest &request){ 
