@@ -11,9 +11,8 @@ To test this program with ONE client:
 * build the program with command at the program directory: `g++ main.cpp httpmessage.cpp httpserver.cpp -o main`
 * run the program at the program directory: `./main`
 * open the browser and access the url at: `http://localhost::8081`. **Note**: I specifically wrote the program to listen to port 8081 (not 8080). Thus to test this program, the url with 8081 must be used. 
-* check the output on the browser.
-
-
+* console output: ![image info](./ConsoleOutput.png)
+* check the output on the browser. ![image info](./BrowserOutput.png)
 
 ## Concepts
 ### HTTP
