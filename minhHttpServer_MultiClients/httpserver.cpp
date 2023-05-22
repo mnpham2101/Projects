@@ -101,6 +101,7 @@ void HttpServer::ListenForConnection(){
         epoll_event * receiveMessageEvent = new epoll_event;
         receiveMessageEvent->events = EPOLLIN;
         receiveMessageEvent->data.fd= clientSocket;
+        cout << "add epoll even EPOLLIN" << receiveMessageEvent->events << "to epoll fd" << worker_epoll_fd_[mCurrentConnection] <<endl;
         EpollControl(worker_epoll_fd_[mCurrentConnection],             
                         EPOLL_CTL_ADD,
                         receiveMessageEvent
@@ -140,7 +141,7 @@ void HttpServer::EpollControl(int epoll_fd, int op, epoll_event *event) {
 void HttpServer::ProcessConnection(int worker_id) {
     while (true){
         int epoll_fd = worker_epoll_fd_[worker_id];
-        cout<<"Process connection from client" <<worker_id<<" epoll fd= "<<epoll_fd<<endl;
+        
         // wait for epoll_event, referec by epoll file descriptor worker_epoll_fd_[worker_id]
         // return number of file descriptors of epoll instances
         int nfds = epoll_wait(worker_epoll_fd_[worker_id],
@@ -247,7 +248,6 @@ ssize_t HttpServer::sendResponseMessage(int epoll_fd, epoll_event *event){
         return 1;
     } else {
         std::cout << "Sent response to client" << std::endl;
-        EpollControl(epoll_fd, EPOLL_CTL_MOD, event);
         return bytesSent;
     }
 }
@@ -268,7 +268,6 @@ void HttpServer::stopServerConnection(){
     }
     close(serverSocket);
     close(clientSocket);
-
 }
 
 void HttpServer::handleHttpRequest(const HttpRequest &request){ 
