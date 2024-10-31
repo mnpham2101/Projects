@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.myid.HomePageFragment"
+        android:label="ID Page" >
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_update"
+            app:destination="@id/navigation_update" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_message"
+            app:destination="@id/navigation_message" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_tasks"
+            app:destination="@id/navigation_tasks" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_update"
+        android:name="com.example.myid.UpdateFragment"
+        android:label="Update Info" >
+        <action
+            android:id="@+id/action_navigation_update_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_update_to_navigation_tasks"
+            app:destination="@id/navigation_tasks" />
+        <action
+            android:id="@+id/action_navigation_update_to_navigation_message"
+            app:destination="@id/navigation_message" />
+    </fragment>
+    <fragment android:id="@+id/navigation_tasks"
+        android:name="com.example.myid.TaskFragment"
+        android:label="Tasks" >
+        <action
+            android:id="@+id/action_navigation_tasks_to_navigation_update"
+            app:destination="@id/navigation_update" />
+        <action
+            android:id="@+id/action_navigation_tasks_to_navigation_message"
+            app:destination="@id/navigation_message" />
+        <action
+            android:id="@+id/action_navigation_tasks_to_navigation_home"
+            app:destination="@id/navigation_home" />
+    </fragment>
+    <fragment android:id="@+id/navigation_message"
+        android:name="com.example.myid.MessageFragment"
+        android:label="Message" >
+        <action
+            android:id="@+id/action_navigation_message_to_navigation_home"
+            app:destination="@id/navigation_home" />
+        <action
+            android:id="@+id/action_navigation_message_to_navigation_tasks"
+            app:destination="@id/navigation_tasks" />
+        <action
+            android:id="@+id/action_navigation_message_to_navigation_update"
+            app:destination="@id/navigation_update" />
+    </fragment>
+
+</navigation>

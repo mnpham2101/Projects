@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_page_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:gravity="center">                               <!-- Centers the content -->
+
+    <!-- Window for ID Image -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        app:cardCornerRadius="20dp"
+        app:strokeWidth="1dp"
+        app:strokeColor="#002FFF"
+        android:padding="2dp">
+
+
+        <!-- Window for ID Image -->
+        <ImageView
+            android:id="@+id/id_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="ID Image"
+            android:src="@drawable/image_id" />
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Container for TextViews -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center" />                  <!-- Centers the TextViews within the container -->
+
+    <!-- TextView for Name -->
+    <TextView
+        android:id="@+id/text_view_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:textAlignment="center" />                   <!-- Centers the text -->
+
+    <!-- TextView for Department -->
+    <TextView
+        android:id="@+id/text_view_department"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Department"
+        android:textAlignment="center" />                   <!-- Centers the text -->
+
+    <!-- TextView for Employee ID -->
+    <TextView
+        android:id="@+id/text_view_employee_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Employee ID"
+        android:textAlignment="center" />                   <!-- Centers the text -->
+</LinearLayout>

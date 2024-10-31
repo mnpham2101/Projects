@@ -1,0 +1,20 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/home_id"
+        android:title="ID Page" />
+    <item
+        android:id="@+id/navigation_update"
+        android:icon="@drawable/update"
+        android:title="Update Info" />
+    <item
+        android:id="@+id/navigation_tasks"
+        android:icon="@drawable/tasks"
+        android:title="Tasks" />
+    <item
+        android:id="@+id/navigation_message"
+        android:icon="@drawable/message"
+        android:title="Message" />
+</menu>
+
+
