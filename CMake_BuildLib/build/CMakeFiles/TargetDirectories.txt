@@ -1,3 +1,0 @@
-/media/sf_Projects/CMake_BuildLib/build/CMakeFiles/Tutorial.dir
-/media/sf_Projects/CMake_BuildLib/build/CMakeFiles/edit_cache.dir
-/media/sf_Projects/CMake_BuildLib/build/CMakeFiles/rebuild_cache.dir
