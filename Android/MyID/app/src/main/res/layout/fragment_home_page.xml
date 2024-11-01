@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_page_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+    <!-- Window for ID Image -->
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="wrap_content"
+        android:layout_height="367dp"
+        android:layout_gravity="center_horizontal"
+        android:padding="2dp"
+        app:cardCornerRadius="20dp"
+        app:strokeColor="#002FFF"
+        app:strokeWidth="1dp">
+        <!-- Window for ID Image -->
+        <ImageView
+            android:id="@+id/id_image"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:contentDescription="ID Image"
+            android:src="@drawable/image_id2" />
+    </com.google.android.material.card.MaterialCardView>
+    <!-- Container for TextViews -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:padding="2dp" />
+    <!-- TextView for Name -->
+    <TextView
+        android:id="@+id/text_view_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name："
+        android:textSize="24dp"
+        android:textAlignment="center"
+        android:padding="5dp" />
+    <!-- TextView for Department -->
+    <TextView
+        android:id="@+id/text_view_department"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Department："
+        android:textSize="24dp"
+        android:textAlignment="center"
+        android:padding="5dp"/>
+    <!-- TextView for Employee ID -->
+    <TextView
+        android:id="@+id/text_view_employee_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Employee ID："
+        android:textAlignment="center"
+        android:textSize="24dp"
+        android:padding="5dp"/>
+</LinearLayout>
