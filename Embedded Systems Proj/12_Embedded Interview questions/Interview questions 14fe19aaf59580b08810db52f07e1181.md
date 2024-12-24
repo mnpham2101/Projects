@@ -26,7 +26,7 @@
 
 [4] [What is the I2C Communication Protocol? | CircuitBread](https://www.circuitbread.com/tutorials/what-is-the-i2c-communication-protocol)
 
-1. what is clock polarity
+3. what is clock polarity
     - In SPI, clock polarity (CPOL) and clock phase (CHPA)  indicates how the slave sampled data: at rising edge, falling edge.
     - CPOL  is the idle state of the SCL line. if CPOL is configured such that SCL is high during idle state , then CPOL = 1.
     - CPOL and SHPA are fields or properties on the HAL struct that defines the configuration of SPI
@@ -46,8 +46,7 @@
     }
     ```
     
-
-1. Explain Pull up/Pull down resistor
+4. Explain Pull up/Pull down resistor
     1. **Reason 1**: all bus lines SDA and SCA to be high when no device pull them low. Ensure proper logic.
         - The Resistors values should be around 4.7 kOhms. One side provides voltage of 5V.  The other side across the resistors are the bus lines SDA and SCA.
         - In each device, on ***each*** pin, there is drive line low logic gate and a diode line to receive data. This is called ***open drive low configuration.*** When there is no communication, electricity flows from Vdd to Pull up resistor to Drive line Low. Thus the line voltage is high.
@@ -66,7 +65,8 @@
     
     - Resistor has capacitance characteristics. High resistance will cause longer rise time and thus bad logic.
     - The max resistance is calculated from resistor’s capacitance while the min resistance is calculated from the maximum input low voltage that the devices can tolerate.
-2. Explain power and communication trade-off in using pull-up/ pull-down resistor:
+      
+5. Explain power and communication trade-off in using pull-up/ pull-down resistor:
     - the logic on SPI are determine by high and low voltage. However the voltage has rise time and fall time, which constitutes delay. The rise time and fall time are the time when the voltage goes from low to high or vice versa.,
     - fast switching is dependent on capacitance. and resistance:
         
@@ -81,7 +81,7 @@
     
     [5] [What is the I2C Communication Protocol? | CircuitBread](https://www.circuitbread.com/tutorials/what-is-the-i2c-communication-protocol) 
     
-3. Explain the differences between exception and interrupt in embedded system 
+6. Explain the differences between exception and interrupt in embedded system 
     
     Both are similar that they occurs after certain events and stop the normal flow of the program. After the interrupts or exception are handled, the program goes back to the saved stack pointer address and continue. 
     
@@ -101,10 +101,11 @@
     
     We defined interrupt when we need to specified **priority**. It is especially important when the MCU may need to handle multiple interrupts.
     
-4. Explain the differences between interrupt and system calls
+7. Explain the differences between interrupt and system calls
     - system call for error events has the highest priority and always occurs ⇒ we can simply define how to handle the event with exception.
     - for I/O events, we want to use interrupt as we want to specify the priority.
-5. Explain how to config interrupt
+      
+8. Explain how to config interrupt
     
     For example, if we want to define the interrupt when certain data arrived at GPIO, we have to: 
     
