@@ -1,5 +1,9 @@
 #include "subscriber.h"
+#include "QDebug"
 
-void Subscriber::handleMessage(std::unique_ptr<QEvent>& event){
+int Subscriber::subscriberID =0;
 
+void Subscriber::handleMessage(std::unique_ptr<CustomEvent>& event){
+    qDebug() << " SubscriberID: " << this->subscriberID;
+    qDebug() << " Receive event Priority: " << event->getPriority() <<"\n";
 }

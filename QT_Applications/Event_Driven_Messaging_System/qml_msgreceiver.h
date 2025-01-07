@@ -1,15 +1,15 @@
-#ifndef MSGRECEIVER_H
-#define MSGRECEIVER_H
+#ifndef QML_MSGRECEIVER_H
+#define QML_MSGRECEIVER_H
 
 #include <QObject>
 #include <QString>
 #include <QDebug>
 
-class MsgReceiver : public QObject {
+class QML_MsgReceiver : public QObject {
     Q_OBJECT
 
 public:
-    explicit MsgReceiver(QObject* parent = nullptr);
+    explicit QML_MsgReceiver(QObject* parent = nullptr);
 
 public slots:
     void handleMessage(const QString& msg);

@@ -5,11 +5,13 @@ QT += quick
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+        event_manager.cpp \
         main.cpp \
-        msgreceiver.cpp \
-        msgsender.cpp \
         publisher.cpp \
-        subscriber.cpp
+        qml_msgreceiver.cpp \
+        qml_msgsender.cpp \
+        subscriber.cpp \
+        subscriber_manager.cpp
 
 RESOURCES += qml.qrc
 
@@ -25,10 +27,12 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    CustomEvent.h \
+    custom_event.h \
+    event_manager.h \
     i_publisher.h \
     i_subscriber.h \
-    msgreceiver.h \
-    msgsender.h \
     publisher.h \
-    subscriber.h
+    qml_msgreceiver.h \
+    qml_msgsender.h \
+    subscriber.h \
+    subscriber_manager.h

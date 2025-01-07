@@ -7,10 +7,10 @@
 class Subscriber : public ISubscriber
 {
     Q_OBJECT
+    static int subscriberID;
 public:
-    explicit Subscriber(QObject *parent = nullptr) : ISubscriber(parent) { };
-    void handleMessage(std::unique_ptr<QEvent>& event);
-
+    explicit Subscriber(QObject *parent = nullptr) : ISubscriber(parent) { ++subscriberID; };
+    void handleMessage(std::unique_ptr<CustomEvent>& event);
 };
 
 #endif // SUBSCRIBER_H

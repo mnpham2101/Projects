@@ -11,7 +11,7 @@ class IPublisher : public QObject{
     virtual ~IPublisher() = default;
     virtual void registerSubscriber(std::shared_ptr<ISubscriber>& subscriber) = 0;
     virtual void unregisterSubscriber(std::shared_ptr<ISubscriber>& subscriber) = 0;
-    virtual void notifyAllSubscriber(std::unique_ptr<QEvent>& event) = 0;
-    virtual void notifySingleSubcriber(std::shared_ptr<ISubscriber>& subscriber, std::unique_ptr<QEvent>& event) = 0;
+    virtual void notifyAllSubscriber(std::unique_ptr<CustomEvent>& event) = 0;
+    virtual void notifySingleSubcriber(std::shared_ptr<ISubscriber>& subscriber, std::unique_ptr<CustomEvent>& event) = 0;
 };
 #endif // I_PUBLISHER_H

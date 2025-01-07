@@ -3,13 +3,23 @@
 
 #include <QObject>
 #include <i_publisher.h>
+#include <mutex>
+#include <QList>
 
 class Publisher : public IPublisher
 {
     Q_OBJECT
-    QList<std::weak_ptr<ISubscriber>> subscriberList;
-public:
+    static Publisher * instance;
+    QList<std::weak_ptr<ISubscriber>> mSubscriberList;
+    std::mutex mObserverMutex;
     explicit Publisher(QObject *parent = nullptr) : IPublisher(parent){} ;
+public:
+    static Publisher* getInstance(){
+        if (!instance){
+            instance = new Publisher();
+        }
+        return instance;
+    }
     /*
      * Adds subscriber to QList, invoked by client.
      * Not thread safe: subscriber can go dead while subscriber is registered. Client must invoke unregisterSubscriber
@@ -27,12 +37,12 @@ public:
      * postEvent that a subscriber listens to. The event is high priority, broadcast event.
      * Check if the subscriber/event is alive before postEvent
      * Should we care Race condition?? */
-    void notifyAllSubscriber(std::unique_ptr<QEvent>& event) override;
+    void notifyAllSubscriber(std::unique_ptr<CustomEvent>& event) override;
     /*
      * postEvent that a subscriber listens to. The event isof any priority, unicast event.
      * Check if the subscriber/event is alive before postEvent
      * Should we care Race condition?? */
-    void notifySingleSubcriber(std::shared_ptr<ISubscriber>& subscriber, std::unique_ptr<QEvent>& event) override;
+    void notifySingleSubcriber(std::shared_ptr<ISubscriber>& subscriber, std::unique_ptr<CustomEvent>& event) override;
 };
 
 #endif // PUBLISHER_H
